@@ -4,10 +4,10 @@ const is_heroku = process.env.IS_HEROKU || false;
 
 
 const dbConfigHeroku = {
-	host: "",
-	user: "",
-	password: "",
-	database: "",
+	host: "jtb9ia3h1pgevwb1.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+	user: "b4yrccvhri9gvd59",
+	password: "yftqtb8a3qlutqx2",
+	database: "ea0v1cstfyjse0aj",
 	multipleStatements: false,
 	namedPlaceholders: true
 };
@@ -15,7 +15,7 @@ const dbConfigHeroku = {
 const dbConfigLocal = {
 	host: "localhost",
 	user: "root",
-	password: "",
+	password: "root",
 	database: "",
 	port: 3306,
 	multipleStatements: false,
