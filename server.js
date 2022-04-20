@@ -24,5 +24,5 @@ app.get('/', (req, res) => {
 app.use('/review', review);
 app.use('/restaurant', restaurant);
 app.listen(PORT, (err, result) => {
-    console.log(`App is running on PORT ${PORT}`);
+    console.log(`http://localhost:${PORT}/`);
 })
