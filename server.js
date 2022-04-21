@@ -23,26 +23,65 @@ app.get('/', (req, res) => {
         if (err) {
             console.error(err)
         } else {
-            res.render('rest', { result })
+            res.render('purchaseItems', { result })
         }
     })
 })
 
-/**
- * // router.get('/', (req, res) => {
-//     functions.getAllRest((err, result) => {
-//         if (err) {
-           
-//             console.log(err)
-//         } else {
-            
-//             res.render('rest', { result })
-//         }
-//     })
+app.post('/addItem', (req, res) => {
+    console.log(req.body);
     
-// })
- */
+    functions.addItem(req.body, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(`result of item added ${result}`);
+            res.redirect('/')
+        }
+    })
+})
 
+app.post('/deleteItem', (req, res) => {
+    console.log(req.body);
+    
+    functions.addItem(req.body, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(`result of item added ${result}`);
+            res.redirect('/')
+        }
+    })
+})
+
+
+app.post('/plusItem', (req, res) => {
+    // console.log(req.body);
+    
+    // functions.addItem(req.body, (err, result) => {
+    //     if (err) {
+    //         console.log(err);
+    //     } else {
+    //         console.log(`result of item added ${result}`);
+    //         res.redirect('/')
+    //     }
+    // })
+    res.redirect("/")
+})
+
+app.post('/minusItem', (req, res) => {
+    // console.log(req.body);
+    
+    // functions.addItem(req.body, (err, result) => {
+    //     if (err) {
+    //         console.log(err);
+    //     } else {
+    //         console.log(`result of item added ${result}`);
+    //         res.redirect('/')
+    //     }
+    // })
+    res.redirect("/")
+})
 
 
 app.use('/review', review);

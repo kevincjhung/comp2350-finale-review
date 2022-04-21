@@ -38,8 +38,15 @@ function getAllItems(callback) {
 //     })
 // }
 function addItem(dataInput, callback) {
-    let sqlQueryThatIsGoingToAddItem = `insert into purchase_item (name, description) values ('${dataInput.name}', '${dataInput.description}');`
-    db.query(sqlQueryThatIsGoingToAddItem, (err, result, fields) => {
+    // let sqlQueryThatIsGoingToAddItem = `
+    //     INSERT into purchase_item (name, description) 
+    //     values ('${dataInput.name}', '${dataInput.description}');`
+    let sqlQueryThatIsGoingToAddItem = `
+        INSERT into purchase_item (name, description) 
+        values ( ? , ? );`
+   
+   
+    db.query(sqlQueryThatIsGoingToAddItem, dataInput.name, dataInput.description, (err, result, fields) => {
         if (err) {
             console.log('there is a err in addRest in function');
             console.log(err);
@@ -65,8 +72,11 @@ function addItem(dataInput, callback) {
 //     })
 // }
 function deleteItem(theInputId, callback) {
-    let sqlQueryThatIsGoingToDeleteThings = `Delete FROM purchase_item WHERE restaurant_id =${theInputId}`;
-    db.query(sqlQueryThatIsGoingToDeleteThings, (err, result, fields) => {
+    let sqlQueryThatIsGoingToDeleteThings = `
+        Delete FROM purchase_item 
+        WHERE restaurant_id = ? `;
+
+    db.query(sqlQueryThatIsGoingToDeleteThings, theInputId,  (err, result, fields) => {
         if (err) {
         console.log('there is a err in deleteRest in function');
         console.log(err);
