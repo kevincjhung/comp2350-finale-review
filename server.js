@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 
 app.post('/addItem', (req, res) => {
     console.log(req.body);
-    
+
     functions.addItem(req.body, (err, result) => {
         if (err) {
             console.log(err);
@@ -43,7 +43,7 @@ app.post('/addItem', (req, res) => {
 
 app.post('/deleteItem', (req, res) => {
     console.log(req.body);
-    
+
     functions.addItem(req.body, (err, result) => {
         if (err) {
             console.log(err);
@@ -56,30 +56,33 @@ app.post('/deleteItem', (req, res) => {
 
 
 app.post('/plusItem', (req, res) => {
-    // console.log(req.body);
+    // let itemID; // find itemID
     
-    // functions.addItem(req.body, (err, result) => {
-    //     if (err) {
-    //         console.log(err);
-    //     } else {
-    //         console.log(`result of item added ${result}`);
-    //         res.redirect('/')
-    //     }
-    // })
+    functions.plusItem(itemID, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(`result of item added ${result}`);
+            res.redirect('/')
+        }
+    })
     res.redirect("/")
 })
 
 app.post('/minusItem', (req, res) => {
-    // console.log(req.body);
+    let itemID; // find itemID
+    let numberItemsLeft; // find the number of items left, 
+
     
-    // functions.addItem(req.body, (err, result) => {
-    //     if (err) {
-    //         console.log(err);
-    //     } else {
-    //         console.log(`result of item added ${result}`);
-    //         res.redirect('/')
-    //     }
-    // })
+    functions.minusItem(itemID, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(`result of item added ${result}`);
+            res.redirect('/')
+        }
+    })
+
     res.redirect("/")
 })
 

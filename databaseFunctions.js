@@ -58,6 +58,14 @@ function addItem(dataInput, callback) {
     })
 }
 
+function plusItem(purchase_item_id, callback){
+    let sqlQueryPlusItem = ``;
+}
+
+function minusItem(purchase_item_id, callback){
+    let sqlQueryMinusItem = ``
+}
+
 // function deleteRest(theInputId, callback) {
 //     let sqlQueryThatIsGoingToDeleteThings = `Delete FROM restaurant WHERE restaurant_id =${theInputId}`;
 //     db.query(sqlQueryThatIsGoingToDeleteThings, (err, result, fields) => {
@@ -74,15 +82,15 @@ function addItem(dataInput, callback) {
 function deleteItem(theInputId, callback) {
     let sqlQueryThatIsGoingToDeleteThings = `
         Delete FROM purchase_item 
-        WHERE restaurant_id = ? `;
+        WHERE purchase_item_id = ? `;
 
     db.query(sqlQueryThatIsGoingToDeleteThings, theInputId,  (err, result, fields) => {
         if (err) {
-        console.log('there is a err in deleteRest in function');
+        console.log('there is a err in deleteItem in function');
         console.log(err);
         callback(err, null);
         } else {
-            console.log("success in the deleteRest Function");
+            console.log("success in the deleteItem Function");
             callback(null, result);
         }
     })
