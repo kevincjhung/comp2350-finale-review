@@ -16,7 +16,7 @@ const dbConfigLocal = {
 	host: "localhost",
 	user: "root",
 	password: "root",
-	database: "restaurant_review",
+	database: "purchases",
 	port: 3306,
 	multipleStatements: false,
 	namedPlaceholders: true
